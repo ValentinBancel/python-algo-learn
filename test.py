@@ -120,12 +120,29 @@ def test_task12(monkeypatch):
 
 
 @pytest.mark.skipif(not hasattr(tasks, 'monthInLetters'), reason="message function does not exist")
-def test_task13():
-    pass
+def test_task13(monkeypatch):
+    inputs = [1,2,3,4,5,6,7,8,9,10,11,12,15]
+    input_generator = (i for i in inputs)
+    monkeypatch.setattr("builtins.input", lambda x: next(input_generator))
+    month = ["january","february","march","april","may","june","july","august","september","october","november","december"]
+    assert tasks.monthInLetters() == month[0]
+    assert tasks.monthInLetters() == month[1]
+    assert tasks.monthInLetters() == month[2]
+    assert tasks.monthInLetters() == month[3]
+    assert tasks.monthInLetters() == month[4]
+    assert tasks.monthInLetters() == month[5]
+    assert tasks.monthInLetters() == month[6]
+    assert tasks.monthInLetters() == month[7]
+    assert tasks.monthInLetters() == month[8]
+    assert tasks.monthInLetters() == month[9]
+    assert tasks.monthInLetters() == month[10]
+    assert tasks.monthInLetters() == month[11]
+    result = tasks.monthInLetters() 
+    assert result not in month
 
 @pytest.mark.skipif(not hasattr(tasks, 'displayGoodEvening'), reason="message function does not exist")
 def test_task14():
-    pass
+    assert tasks.displayGoodEvening() == "Good evening Good evening Good evening Good evening Good evening Good evening Good evening Good evening Good evening Good evening "
 
 @pytest.mark.skipif(not hasattr(tasks, 'sum1To10'), reason="message function does not exist")
 def test_task15():
