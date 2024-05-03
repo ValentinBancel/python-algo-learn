@@ -13,7 +13,7 @@ source ./venv/bin/activate
 
 install dependencies:
 ```python
-pip3 install -r ./requirement.txt
+pip3 install -r ./requirements.txt
 ```
 
 
