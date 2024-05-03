@@ -22,177 +22,102 @@ def test_task4():
 
 @pytest.mark.skipif(not hasattr(tasks, 'biggest'), reason="message function does not exist")
 def test_task5(monkeypatch):
-    inputs = [2, 3, 4]
+    inputs = [2, 3, 4,3, 4, 2,4, 2, 3,5, 5, 5]
     input_generator = (i for i in inputs)
     monkeypatch.setattr('builtins.input', lambda x: next(input_generator))
     assert tasks.biggest() == 4
-    inputs = [3, 4, 2]
-    input_generator = (i for i in inputs)
-    monkeypatch.setattr('builtins.input', lambda x: next(input_generator))
     assert tasks.biggest() == 4
-    inputs = [4, 2, 3]
-    input_generator = (i for i in inputs)
-    monkeypatch.setattr('builtins.input', lambda x: next(input_generator))
     assert tasks.biggest() == 4
-    inputs = [5, 5, 5]
-    input_generator = (i for i in inputs)
-    monkeypatch.setattr('builtins.input', lambda x: next(input_generator))
     assert tasks.biggest() == 5
 
 @pytest.mark.skipif(not hasattr(tasks, 'evaluatingGrade'), reason="message function does not exist")
 def test_task6(monkeypatch):
-    inputs = [10]
+    inputs = [10,9,20,55]
     input_generator = (i for i in inputs)
     monkeypatch.setattr('builtins.input', lambda x: next(input_generator))
     assert tasks.evaluatingGrade() == "passed"
-    inputs = [9]
-    input_generator = (i for i in inputs)
-    monkeypatch.setattr('builtins.input', lambda x: next(input_generator))
     assert tasks.evaluatingGrade() == "failed"
-    inputs = [20]
-    input_generator = (i for i in inputs)
-    monkeypatch.setattr('builtins.input', lambda x: next(input_generator))
     assert tasks.evaluatingGrade() == "passed"
-    inputs = [55]
-    input_generator = (i for i in inputs)
-    monkeypatch.setattr('builtins.input', lambda x: next(input_generator))
     result = tasks.evaluatingGrade()
     assert result != "failed" and result != "passed"
 
 @pytest.mark.skipif(not hasattr(tasks, 'positiveNegativeProduct'), reason="message function does not exist")
 def test_task7(monkeypatch):
-    inputs = [2,3]
+    inputs = [2,3,-2,3,2,-3,-2,-3,0,0,0,3,2,0,0,-3,-25000,10000]
     input_generator = (i for i in inputs)
     monkeypatch.setattr('builtins.input', lambda x: next(input_generator))
     assert tasks.positiveNegativeProduct() == "Positive"
-    inputs = [-2,3]
-    input_generator = (i for i in inputs)
-    monkeypatch.setattr('builtins.input', lambda x: next(input_generator))
     assert tasks.positiveNegativeProduct() == "Negative"
-    inputs = [2,-3]
-    input_generator = (i for i in inputs)
-    monkeypatch.setattr('builtins.input', lambda x: next(input_generator))
     assert tasks.positiveNegativeProduct() == "Negative"
-    inputs = [-2,-3]
-    input_generator = (i for i in inputs)
-    monkeypatch.setattr('builtins.input', lambda x: next(input_generator))
     assert tasks.positiveNegativeProduct() == "Positive"
-    inputs = [0,0]
-    input_generator = (i for i in inputs)
-    monkeypatch.setattr('builtins.input', lambda x: next(input_generator))
     assert tasks.positiveNegativeProduct() == "Positive"
-    inputs = [0,3]
-    input_generator = (i for i in inputs)
-    monkeypatch.setattr('builtins.input', lambda x: next(input_generator))
     assert tasks.positiveNegativeProduct() == "Positive"
-    inputs = [2,0]
-    input_generator = (i for i in inputs)
-    monkeypatch.setattr('builtins.input', lambda x: next(input_generator))
     assert tasks.positiveNegativeProduct() == "Positive"
-    inputs = [0,-3]
-    input_generator = (i for i in inputs)
-    monkeypatch.setattr('builtins.input', lambda x: next(input_generator))
     assert tasks.positiveNegativeProduct() == "Positive"
-    inputs = [-25000,10000]
-    input_generator = (i for i in inputs)
-    monkeypatch.setattr('builtins.input', lambda x: next(input_generator))
     assert tasks.positiveNegativeProduct() == "Negative"
 
 @pytest.mark.skipif(not hasattr(tasks, 'absoluteValue'), reason="message function does not exist")
 def test_task8(monkeypatch):
-    inputs = [2]
+    inputs = [2,-2,0,-5,5]
     input_generator = (i for i in inputs)
     monkeypatch.setattr('builtins.input', lambda x: next(input_generator))
     assert tasks.absoluteValue() == 2
-    inputs = [-2]
-    input_generator = (i for i in inputs)
-    monkeypatch.setattr('builtins.input', lambda x: next(input_generator))
     assert tasks.absoluteValue() == 2
-    inputs = [0]
-    input_generator = (i for i in inputs)
-    monkeypatch.setattr('builtins.input', lambda x: next(input_generator))
     assert tasks.absoluteValue() == 0
-    inputs = [-5]
-    input_generator = (i for i in inputs)
-    monkeypatch.setattr('builtins.input', lambda x: next(input_generator))
     assert tasks.absoluteValue() == 5
-    inputs = [5]
-    input_generator = (i for i in inputs)
-    monkeypatch.setattr('builtins.input', lambda x: next(input_generator))
     assert tasks.absoluteValue() == 5
 
 @pytest.mark.skipif(not hasattr(tasks, 'averageOfThreeIntegers'), reason="message function does not exist")
 def test_averageOfThreeIntegers(monkeypatch):
-    inputs = [2, 3, 4]
+    inputs = [2, 3, 4,12, 7, 25]
     input_generator = (i for i in inputs)
     monkeypatch.setattr('builtins.input', lambda x: next(input_generator))
     assert tasks.averageOfThreeIntegers() == 3
-    inputs = [12, 7, 25]
-    input_generator = (i for i in inputs)
-    monkeypatch.setattr('builtins.input', lambda x: next(input_generator))
     assert tasks.averageOfThreeIntegers() == 14.666666666666666
-    inputs = [2, 3, 4]
-    input_generator = (i for i in inputs)
-    monkeypatch.setattr('builtins.input', lambda x: next(input_generator))
-    assert tasks.averageOfThreeIntegers() == 3
-    inputs = [2, 3, 4]
-    input_generator = (i for i in inputs)
-    monkeypatch.setattr('builtins.input', lambda x: next(input_generator))
-    assert tasks.averageOfThreeIntegers() == 3
 
 @pytest.mark.skipif(not hasattr(tasks, 'calculateTotalPrice'), reason="message function does not exist")
 def test_task10(monkeypatch):
-    inputs = [300]
+    inputs = [300,700,900,1000,2000,100]
     input_generator = (i for i in inputs)
     monkeypatch.setattr('builtins.input', lambda x: next(input_generator))
     assert tasks.calculateTotalPrice() == 306.0
-    inputs = [700]
-    input_generator = (i for i in inputs)
-    monkeypatch.setattr('builtins.input', lambda x: next(input_generator))
     assert tasks.calculateTotalPrice() == 714.0
-    inputs = [900]
-    input_generator = (i for i in inputs)
-    monkeypatch.setattr('builtins.input', lambda x: next(input_generator))
     assert tasks.calculateTotalPrice() == 918.0
-    inputs = [1000]
-    input_generator = (i for i in inputs)
-    monkeypatch.setattr('builtins.input', lambda x: next(input_generator))
     assert tasks.calculateTotalPrice() == 1020.0
-    inputs = [2000]
-    input_generator = (i for i in inputs)
-    monkeypatch.setattr('builtins.input', lambda x: next(input_generator))
     assert tasks.calculateTotalPrice() == 2040.0
-    inputs = [100]
-    input_generator = (i for i in inputs)
-    monkeypatch.setattr('builtins.input', lambda x: next(input_generator))
     assert tasks.calculateTotalPrice() == 120.0
 
 @pytest.mark.skipif(not hasattr(tasks, 'copyingBill'), reason="message function does not exist")
 def test_task11(monkeypatch):
-    inputs = [0]
+    inputs = [0,5,15,25,150]
     input_generator = (i for i in inputs)
     monkeypatch.setattr('builtins.input', lambda x: next(input_generator))
-    assert tasks.copyingBill() ==0
-    inputs = [5]
-    input_generator = (i for i in inputs)
-    monkeypatch.setattr('builtins.input', lambda x: next(input_generator))
+    assert tasks.copyingBill() == 0
     assert tasks.copyingBill() == 1.25
-    inputs = [15]
-    input_generator = (i for i in inputs)
-    monkeypatch.setattr('builtins.input', lambda x: next(input_generator))
     assert tasks.copyingBill() == 3.5
-    inputs = [25]
-    input_generator = (i for i in inputs)
-    monkeypatch.setattr('builtins.input', lambda x: next(input_generator))
     assert tasks.copyingBill() == 5
-    inputs = [150]
-    input_generator = (i for i in inputs)
-    monkeypatch.setattr('builtins.input', lambda x: next(input_generator))
     assert tasks.copyingBill() == 17.5
 
+
 @pytest.mark.skipif(not hasattr(tasks, 'childAgeCategory'), reason="message function does not exist")
-def test_task12():
-    pass
+def test_task12(monkeypatch):
+    inputs = [1,2,3,6,7,8,9,10,11,12,16,17]
+    input_generator = (i for i in inputs)
+    monkeypatch.setattr('builtins.input', lambda x: next(input_generator))
+    result = tasks.childAgeCategory() 
+    assert result != "poussin" and result != "pupille" and result != "minime" and result != "cadet"
+    result = tasks.childAgeCategory() 
+    assert result != "poussin" and result != "pupille" and result != "minime" and result != "cadet"
+    result = tasks.childAgeCategory() 
+    assert result != "poussin" and result != "pupille" and result != "minime" and result != "cadet"
+    assert tasks.childAgeCategory() == "poussin"
+    assert tasks.childAgeCategory() == "poussin"
+    assert tasks.childAgeCategory() == "pupille"
+    assert tasks.childAgeCategory() == "pupille"
+    assert tasks.childAgeCategory() == "minime"
+    assert tasks.childAgeCategory() == "minime"
+    assert tasks.childAgeCategory() == "cadet"
+
 
 @pytest.mark.skipif(not hasattr(tasks, 'monthInLetters'), reason="message function does not exist")
 def test_task13():
