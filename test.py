@@ -43,18 +43,18 @@ def test_task6(monkeypatch):
 
 @pytest.mark.skipif(not hasattr(tasks, 'positiveNegativeProduct'), reason="message function does not exist")
 def test_task7(monkeypatch):
-    inputs = [2,3,-2,3,2,-3,-2,-3,0,0,0,3,2,0,0,-3,-25000,10000]
+    inputs = [2,3, -2,3, 2,-3, -2,-3, 0,0, 0,3, 2,0, 0,-3 ,-25000,10000]
     input_generator = (i for i in inputs)
     monkeypatch.setattr('builtins.input', lambda x: next(input_generator))
-    assert tasks.positiveNegativeProduct() == "Positive"
-    assert tasks.positiveNegativeProduct() == "Negative"
-    assert tasks.positiveNegativeProduct() == "Negative"
-    assert tasks.positiveNegativeProduct() == "Positive"
-    assert tasks.positiveNegativeProduct() == "Positive"
-    assert tasks.positiveNegativeProduct() == "Positive"
-    assert tasks.positiveNegativeProduct() == "Positive"
-    assert tasks.positiveNegativeProduct() == "Positive"
-    assert tasks.positiveNegativeProduct() == "Negative"
+    assert tasks.positiveNegativeProduct() == "positive"
+    assert tasks.positiveNegativeProduct() == "negative"
+    assert tasks.positiveNegativeProduct() == "negative"
+    assert tasks.positiveNegativeProduct() == "positive"
+    assert tasks.positiveNegativeProduct() == "zero"
+    assert tasks.positiveNegativeProduct() == "zero"
+    assert tasks.positiveNegativeProduct() == "zero"
+    assert tasks.positiveNegativeProduct() == "zero"
+    assert tasks.positiveNegativeProduct() == "negative"
 
 @pytest.mark.skipif(not hasattr(tasks, 'absoluteValue'), reason="message function does not exist")
 def test_task8(monkeypatch):
