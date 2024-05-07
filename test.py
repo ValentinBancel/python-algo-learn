@@ -142,17 +142,29 @@ def test_task13(monkeypatch):
 
 @pytest.mark.skipif(not hasattr(tasks, 'displayGoodEvening'), reason="message function does not exist")
 def test_task14():
-    assert tasks.displayGoodEvening() == "Good evening Good evening Good evening Good evening Good evening Good evening Good evening Good evening Good evening Good evening "
+    assert tasks.displayGoodEvening() == "Good eveningGood eveningGood eveningGood eveningGood eveningGood eveningGood eveningGood eveningGood eveningGood evening"
 
 @pytest.mark.skipif(not hasattr(tasks, 'sum1To10'), reason="message function does not exist")
 def test_task15():
-    pass
+    assert tasks.sum1To10() == 55
 @pytest.mark.skipif(not hasattr(tasks, 'sum1ToN'), reason="message function does not exist")
-def test_task16():
-    pass
+def test_task16(monkeypatch):
+    inputs = [10,75,90,192,647,824,675,9284,12345678]
+    input_generator = (i for i in inputs)
+    monkeypatch.setattr("builtins.input", lambda x: next(input_generator))
+    assert tasks.sum1To10() == 55
+    assert tasks.sum1To10() == 55
+    assert tasks.sum1To10() == 55
+    assert tasks.sum1To10() == 55
+    assert tasks.sum1To10() == 55
+    assert tasks.sum1To10() == 55
+    assert tasks.sum1To10() == 55
+    assert tasks.sum1To10() == 55
+    assert tasks.sum1To10() == 55
+
 @pytest.mark.skipif(not hasattr(tasks, 'displayHelloTenTimes'), reason="message function does not exist")
 def test_task17():
-    pass
+    assert tasks.displayHelloTenTimes() == "HelloHelloHelloHelloHelloHelloHelloHelloHelloHello"
 @pytest.mark.skipif(not hasattr(tasks, 'sum1To10UsingForLoop'), reason="message function does not exist")
 def test_task18():
     pass
